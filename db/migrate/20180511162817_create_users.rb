@@ -5,7 +5,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email, limit: 128, null: false
       t.string :password, limit: 255, null: false
       t.integer :gender, null: false, default: 0
+      t.string :phone, limit: 32, null: true
       t.date :birthday, null: true
+      t.bigint :avatar, null: true
       t.string :school, limit: 255, null: true
       t.string :company, limit: 255, null: true
       t.text :sign, null: true
@@ -14,6 +16,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.timestamps
       t.index :nickname
       t.index :email, unique: true
+      t.index :phone, unique: true
     end
   end
 

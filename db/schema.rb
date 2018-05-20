@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2018_05_11_162817) do
     t.string "email", limit: 128, null: false
     t.string "password", null: false
     t.integer "gender", default: 0, null: false
+    t.string "phone", limit: 32
     t.date "birthday"
     t.string "school"
     t.string "company"
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_05_11_162817) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["nickname"], name: "index_users_on_nickname"
+    t.index ["phone"], name: "index_users_on_phone", unique: true
   end
 
 end
