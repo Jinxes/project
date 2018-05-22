@@ -1,9 +1,9 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
   def up
     create_table :users do |t|
-      t.string :nickname, limit: 128, null: false
+      t.string :username, limit: 128, null: false
       t.string :email, limit: 128, null: false
-      t.string :password, limit: 255, null: false
+      t.string :password_digest, limit: 255, null: false
       t.integer :gender, null: false, default: 0
       t.string :phone, limit: 32, null: true
       t.date :birthday, null: true
@@ -14,7 +14,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.text :intro, null: true
       t.boolean :status, null: false, default: true
       t.timestamps
-      t.index :nickname
+      t.index :username
       t.index :email, unique: true
       t.index :phone, unique: true
     end
