@@ -6,7 +6,7 @@ class Api::V1::AuthController < Api::V1::BaseController
   end
 
   def create
-    param = params.permit(:username, :email, :password)
+    param = params.permit(:email, :password)
     user = User.create(param)
     if user.invalid?
       return render json: user.errors.messages, status: 422

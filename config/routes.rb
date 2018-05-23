@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :user, only: [:index, :create, :show, :update, :destroy]
       resources :auth, only: [:index, :create, :show, :update, :destroy]
+      put '/user', to: 'user#update', as: 'user_update'
     end
   end
 end
